@@ -1,0 +1,299 @@
+// Global SCSS Start Here
+
+// 1. Include functions first (so you can manipulate colors, SVGs, calc, etc)
+@import "../../../node_modules/bootstrap/scss/functions";
+
+// 2. Include any default variable overrides here
+
+$primary: #3c5eab;
+$offcanvas-horizontal-width: 300px;
+
+// 3. Include remainder of required Bootstrap stylesheets (including any separate color mode stylesheets)
+@import "../../../node_modules/bootstrap/scss/variables";
+@import "../../../node_modules/bootstrap/scss/variables-dark";
+
+// 4. Include any default map overrides here
+
+// 5. Include remainder of required parts
+@import "../../../node_modules/bootstrap/scss/maps";
+@import "../../../node_modules/bootstrap/scss/mixins";
+@import "../../../node_modules/bootstrap/scss/root";
+
+// 6. Include any other optional stylesheet partials as desired; list below is not inclusive of all available stylesheets
+@import "../../../node_modules/bootstrap/scss/utilities";
+
+//7.
+@import "../../../node_modules/bootstrap/scss/bootstrap";
+
+// 8. Add additional custom code here
+
+@import url("https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Quicksand:wght@300..700&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap");
+
+body {
+    font-family: "Poppins", sans-serif;
+}
+
+.flex-fill {
+    min-width: 2px;
+}
+
+// Global SCSS End Here
+
+.wrapper {
+    display: flex;
+    min-height: 100vh;
+
+    .sidemenu {
+        min-width: 345px;
+        background-color: $primary;
+        transition: 0.5s;
+
+        .navbar {
+            background-color: transparent;
+            padding-top: 72px;
+            padding-bottom: 76px;
+            margin-bottom: 0;
+            height: 100%;
+
+            .navbar-brand {
+                margin-right: 0;
+                margin-bottom: 56px;
+                padding: 0;
+            }
+
+            .offcanvas {
+                .offcanvas-body {
+                    .navbar-nav {
+                        display: flex;
+                        flex-direction: column;
+                    }
+                    .nav-link {
+                        padding: 0;
+                        display: flex;
+                        align-items: center;
+                        gap: 24px;
+                        margin-bottom: 32px;
+
+                        .nav-text {
+                            font-size: 20px;
+                            font-weight: 500;
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .content-wrapper {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background-color: #f7f7f7;
+            border-bottom: 0.5px solid #b4b4b4;
+            height: 72px;
+            padding: 0 30px;
+
+            .sidemenu-toogler {
+                cursor: pointer;
+            }
+
+            .user-profile-dropdown {
+                .btn {
+                    background-color: transparent;
+                    border-color: transparent;
+                    padding: 0;
+
+                    .dropdown-support {
+                        display: flex;
+                        align-items: center;
+                        gap: 18px;
+
+                        .dropdown-title {
+                            font-size: 18px;
+                            font-weight: 500;
+                            color: #222222;
+                        }
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                }
+            }
+        }
+
+        .content {
+            padding: 30px 16px;
+
+            .home-wrapper {
+                .title {
+                    font-size: 26px;
+                    font-weight: 600;
+                    color: #222222;
+                    margin-bottom: 30px;
+                }
+
+                .custom-card {
+                    border: 0 !important;
+                    border-radius: 45px;
+                    min-height: 270px;
+
+                    &.join-meeting {
+                        background-color: #31b1ea;
+                    }
+
+                    &.host-meeting {
+                        background-color: #3CA7AB;
+                    }
+
+                    &.poll-meeting {
+                        background-color: #F4C546;
+                    }
+
+                    &.question-meeting {
+                        background-color: #E64848;
+                    }
+
+                    .card-body {
+                        padding: 48px;
+
+                        .card-img {
+                            margin-bottom: 20px;
+                        }
+
+                        .count {
+                            font-size: 40px;
+                            font-weight: 600;
+                            color: #ffffff;
+                        }
+
+                        .card-desc {
+                            font-size: 20px;
+                            font-weight: 600;
+                            color: #ffffff;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .sidemenu {
+            .navbar {
+                .navbar-toggler {
+                    position: absolute;
+                    top: 20px;
+                    left: 86px;
+                    border: 0px;
+                    padding: 0;
+
+                    &:focus {
+                        box-shadow: none;
+                    }
+
+                    .navbar-toggler-icon {
+                        display: none;
+                    }
+
+                    &::after {
+                        content: "";
+                        background-image: url("../images/bar-icon.png");
+                        background-size: cover;
+                        height: 32px;
+                        width: 32px;
+                        display: flex;
+                    }
+                }
+            }
+        }
+
+        .content-wrapper {
+            .header {
+                justify-content: flex-end;
+                .sidemenu-toogler {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    @media (max-width: 576.98px) {
+        .sidemenu {
+            .navbar {
+                .navbar-toggler {
+                    left: 67px;
+                }
+            }
+        }
+        .content-wrapper {
+            .header {
+                padding: 0 10px;
+            }
+        }
+    }
+}
+
+.mini-sidemenu {
+    .sidemenu {
+        min-width: auto;
+        width: 55px;
+        transition: 0.5s;
+
+        .navbar {
+            padding-top: 24px;
+
+            .offcanvas {
+                .offcanvas-body {
+                    .nav-link {
+                        margin-bottom: 30px;
+
+                        .nav-text {
+                            display: none;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    @media (max-width: 991.98px) {
+        .sidemenu {
+            margin-left: -55px;
+        }
+    }
+}
+
+@media (max-width: 991.98px) {
+    .offcanvas {
+        .offcanvas-body {
+            .nav-link {
+                padding: 0;
+                display: flex;
+                align-items: center;
+                gap: 24px;
+                margin-bottom: 32px;
+
+                .nav-text {
+                    font-size: 20px;
+                    font-weight: 500;
+                    color: #222222;
+                }
+
+                .nav-icon {
+                    svg {
+                        path {
+                            fill: $primary;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
